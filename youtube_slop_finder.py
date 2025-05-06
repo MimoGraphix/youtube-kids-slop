@@ -1,3 +1,4 @@
+import os.path
 import time
 
 import requests
@@ -35,9 +36,22 @@ if __name__ == '__main__':  # To ensure correct behavior on Windows and macOS
         "MultiDOTeam",
         "YipYap",
         "HaHaNom",
+        "BlaBlaHack",
+        "BlaBla",
+        "TapeeTime",
+        "WooHooWHOA",
+        "TeenSixteen",
     ]
 
-    founded = open('results.txt', 'w')
+    channels = []
+    if os.path.exists('results.txt'):
+        with open('results.txt', 'r') as file:
+            # Read all lines into a list
+            channels = file.readlines()
+
+    for i in channels:
+        index = channels.index(i)
+        channels[index] = i.strip()
 
     with open('languages.txt', 'r') as file:
         for language in file:
@@ -49,11 +63,15 @@ if __name__ == '__main__':  # To ensure correct behavior on Windows and macOS
                 # https://www.youtube.com/@MultiDOGIRLSSerbian
                 url = "https://www.youtube.com/@" + name + language
 
-                result = requests.get(url)
-                if result.status_code == 200:
-                    print('\033[32m' + "Found: " + url + '\033[0m')
-                    founded.write(url + "\n")
+                if url not in channels:
+                    result = requests.get(url)
+                    if result.status_code == 200:
+                        print('\033[32m' + "Found: " + url + '\033[0m')
+                        channels.append(url)
 
             time.sleep(5) # because I dont want a BAN :D
 
+    founded = open('results.txt', 'w')
+    for channel in channels:
+        founded.write(channel + "\n")
     founded.close()
