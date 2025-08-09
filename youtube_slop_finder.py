@@ -41,6 +41,8 @@ if __name__ == '__main__':  # To ensure correct behavior on Windows and macOS
         "TapeeTime",
         "WooHooWHOA",
         "TeenSixteen",
+        "TroomTroom",
+        "WooHoo",
     ]
 
     channels = []
