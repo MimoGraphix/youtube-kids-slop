@@ -34,6 +34,7 @@ if __name__ == '__main__':  # To ensure correct behavior on Windows and macOS
         "MultiDo",
         "MultiDOChallenge",
         "MultiDOTeam",
+        "MultiDOJoy",
         "YipYap",
         "HaHaNom",
         "BlaBlaHack",
@@ -43,6 +44,8 @@ if __name__ == '__main__':  # To ensure correct behavior on Windows and macOS
         "TeenSixteen",
         "TroomTroom",
         "WooHoo",
+        "BubbaDO",
+        "DoDoChallenge",
     ]
 
     channels = []
